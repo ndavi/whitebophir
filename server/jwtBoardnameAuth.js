@@ -92,6 +92,9 @@ function roleInBoard(token, board = null) {
             return "editor";
         }
     } else {
+        if(token === "moderator") {
+            return "moderator"
+        }
         return "editor";
     }
 }

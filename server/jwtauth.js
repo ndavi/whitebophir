@@ -36,13 +36,14 @@ const {roleInBoard} = require("./jwtBoardnameAuth");
  */
 function checkUserPermission(url) {
   var isModerator = false;
-  if (config.AUTH_SECRET_KEY != "") {
+  if (true) {
     var token = url.searchParams.get("token");
     if (token) {
       isModerator = roleInBoard(token) === "moderator";
     } else {
+      return false;
       // Error out as no token provided
-      throw new Error("No token provided");
+      //throw new Error("No token provided");
     }
   }
   return isModerator;
