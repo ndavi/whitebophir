@@ -80,18 +80,18 @@
 
 	var svg = Tools.svg;
 
-	Tools.add({ //The new tool
-		"name": "Eraser",
-		"shortcut": "e",
-		"listeners": {
-			"press": startErasing,
-			"move": erase,
-			"release": stopErasing,
-		},
-		"draw": draw,
-		"icon": "tools/eraser/icon.svg",
-		"mouseCursor": "crosshair",
-		"showMarker": true,
-	});
+		Tools.add({ //The new tool
+			"name": "Eraser",
+			"shortcut": "e",
+			"listeners": {
+				"press": startErasing,
+				"move": erase,
+				"release": stopErasing,
+			},
+			"draw": draw,
+			"icon": "tools/eraser/icon.svg",
+			"mouseCursor": "crosshair",
+			"showMarker": true,
+		});
 
 })(); //End of code isolation

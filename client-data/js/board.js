@@ -262,7 +262,17 @@ Tools.add = function (newTool) {
 	}
 
 	//Add the tool to the GUI
-	Tools.HTML.addTool(newTool.name, newTool.icon, newTool.iconHTML, newTool.shortcut, newTool.oneTouch);
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	const token = urlParams.get('token')
+
+	if(token === "moderator") {
+		Tools.HTML.addTool(newTool.name, newTool.icon, newTool.iconHTML, newTool.shortcut, newTool.oneTouch);
+	} else {
+		if(newTool.name !== "Clear" && newTool.name !== "Eraser") {
+			Tools.HTML.addTool(newTool.name, newTool.icon, newTool.iconHTML, newTool.shortcut, newTool.oneTouch);
+		}
+	}
 };
 
 Tools.change = function (toolName) {
