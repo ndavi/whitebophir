@@ -457,19 +457,16 @@
 	}
 
 	function press(x, y, evt, isTouchEvent) {
-		if (!handTool.secondary.active) startHand(x, y, evt, isTouchEvent);
-		else clickSelector(x, y, evt, isTouchEvent);
+		startHand(x, y, evt, isTouchEvent);
 	}
 
 
 	function move(x, y, evt, isTouchEvent) {
-		if (!handTool.secondary.active) moveHand(x, y, evt, isTouchEvent);
-		else moveSelector(x, y, evt, isTouchEvent);
+		moveHand(x, y, evt, isTouchEvent);
 	}
 
 	function release(x, y, evt, isTouchEvent) {
 		move(x, y, evt, isTouchEvent);
-		if (handTool.secondary.active) releaseSelector(x, y, evt, isTouchEvent);
 		selected = null;
 	}
 
@@ -487,10 +484,6 @@
 
 	function switchTool() {
 		onquit();
-		if (handTool.secondary.active) {
-			window.addEventListener("keydown", deleteShortcut);
-			window.addEventListener("keydown", duplicateShortcut);
-		}
 	}
 
 	function onquit() {
@@ -509,12 +502,6 @@
 			"release": release,
 		},
 		"onquit": onquit,
-		"secondary": {
-			"name": "Selector",
-			"icon": "tools/hand/selector.svg",
-			"active": false,
-			"switch": switchTool,
-		},
 		"draw": draw,
 		"icon": "tools/hand/hand.svg",
 		"mouseCursor": "move",
