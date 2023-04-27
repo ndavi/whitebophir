@@ -78,9 +78,9 @@
 		Tools.drawAndSend({
 			'type': 'line',
 			'id': curLineId,
-			'color': (pencilTool.secondary.active ? "#ffffff" : Tools.getColor()),
+			'color': (Tools.getColor()),
 			'size': Tools.getSize(),
-			'opacity': (pencilTool.secondary.active ? 1 : Tools.getOpacity()),
+			'opacity': (Tools.getOpacity()),
 		});
 
 		//Immediatly add a point to the line
@@ -176,15 +176,6 @@
 		drawingSize = Tools.getSize();
 		if (whiteOutSize != -1) {
 			Tools.setSize(whiteOutSize);
-		}
-	}
-
-	//Restore remembered size after switch
-	function toggleSize() {
-		if (pencilTool.secondary.active) {
-			restoreWhiteOutSize();
-		} else {
-			restoreDrawingSize();
 		}
 	}
 
